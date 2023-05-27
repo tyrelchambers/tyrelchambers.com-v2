@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { MantineProvider } from "@mantine/core";
 import type { AppProps } from "next/app";
 import { Merriweather, Poppins } from "next/font/google";
+import "highlight.js/styles/github-dark.css";
 
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";

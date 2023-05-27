@@ -20,7 +20,7 @@ const PostList = ({ posts }: Props) => {
             className="bg-neutral-800 rounded-2xl p-8 flex flex-col gap-3"
           >
             <div className="flex flex-col flex-1 gap-3">
-              <div className="w-full h-[150px] overflow-hidden rounded-xl mb-4 shadow-lg">
+              <div className="w-full h-[150px] overflow-hidden rounded-xl mb-4 shadow-lg flex items-center">
                 <Image src={post.coverImg} alt="" />
               </div>
               <Title order={3} className="text-white">
@@ -35,7 +35,7 @@ const PostList = ({ posts }: Props) => {
                 <p>{post.views}</p>
               </div>
               <Link
-                href={POST_URL(post.slug)}
+                href={POST_URL(post.slug.current)}
                 className="rounded-xl px-6 py-2 border-2 border-indigo-500 text-white font-medium text-center shadow-xl mt-8 hover:bg-indigo-500 self-end"
               >
                 View

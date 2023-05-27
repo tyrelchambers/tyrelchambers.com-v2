@@ -40,9 +40,10 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     token: process.env.SANITY_TOKEN,
     projectId: process.env.SANITY_PROJECT_ID,
     dataset: "production",
-    apiVersion: "2022-03-25",
+    apiVersion: "2023-05-27",
+    useCdn: false,
   });
-  const posts = await sanityClient.fetch(`*[_type == "post"]`);
+  const posts = await sanityClient.fetch(`*[_type == "posts"]`);
 
   return {
     props: {

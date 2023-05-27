@@ -37,11 +37,11 @@ export default function App({ Component, pageProps }: AppProps) {
         h4,
         h5,
         h6 {
-          font-family: ${heading.style.fontFamily};
+          font-family: ${heading.style.fontFamily} !important;
         }
 
         p {
-          font-family: ${p.style.fontFamily};
+          font-family: ${p.style.fontFamily} !important;
         }
       `}</style>
     </MantineProvider>

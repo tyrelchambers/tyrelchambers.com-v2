@@ -6,6 +6,7 @@ import { createClient } from "next-sanity";
 import { Post } from "@/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/pro-light-svg-icons";
+import TechStackImgs from "@/layout/TechStackImgs";
 interface Props {
   posts: Post[];
 }
@@ -13,11 +14,12 @@ interface Props {
 export default function Home({ posts }: Props) {
   return (
     <main>
-      <header className="max-w-screen-lg w-full mx-auto my-20 flex flex-col items-center">
+      <header className="max-w-screen-xl w-full mx-auto my-20 flex flex-col items-center">
         <Title className="text-white">Tyrel Chambers</Title>
         <Text mt="lg" size="xl" color="dimmed">
           Indie developer creating things I&apos;m passionate about.
         </Text>
+        <TechStackImgs />
       </header>
 
       <section className=" max-w-screen-xl mx-auto">

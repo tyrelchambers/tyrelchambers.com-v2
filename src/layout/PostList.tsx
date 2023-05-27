@@ -1,0 +1,51 @@
+import { POST_URL } from "@/constants";
+import { Post } from "@/types";
+import { faEye } from "@fortawesome/pro-light-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button, Image, Text, Title } from "@mantine/core";
+import Link from "next/link";
+import React from "react";
+
+interface Props {
+  posts: Post[];
+}
+
+const PostList = ({ posts }: Props) => {
+  return (
+    <div>
+      <ul className="grid grid-cols-3 gap-10">
+        {posts.map((post) => (
+          <li
+            key={post._id}
+            className="bg-neutral-800 rounded-2xl p-8 flex flex-col gap-3"
+          >
+            <div className="flex flex-col flex-1 gap-3">
+              <div className="w-full h-[150px] overflow-hidden rounded-xl mb-4 shadow-lg">
+                <Image src={post.coverImg} alt="" />
+              </div>
+              <Title order={3} className="text-white">
+                {post.title}
+              </Title>
+              <Text color="dimmed">{post.summary}</Text>
+            </div>
+
+            <footer className="flex justify-between items-end">
+              <div className="flex text-neutral-500 gap-2 items-center">
+                <FontAwesomeIcon icon={faEye} />
+                <p>{post.views}</p>
+              </div>
+              <Link
+                href={POST_URL(post.slug)}
+                className="rounded-xl px-6 py-2 border-2 border-indigo-500 text-white font-medium text-center shadow-xl mt-8 hover:bg-indigo-500 self-end"
+              >
+                View
+              </Link>
+            </footer>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default PostList;

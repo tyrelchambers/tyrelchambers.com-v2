@@ -5,8 +5,9 @@ import { GetServerSideProps } from "next";
 import { createClient } from "next-sanity";
 import { Post } from "@/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/pro-light-svg-icons";
+import { faArrowRight, faSearch } from "@fortawesome/pro-light-svg-icons";
 import TechStackImgs from "@/layout/TechStackImgs";
+import Link from "next/link";
 interface Props {
   posts: Post[];
 }
@@ -14,7 +15,7 @@ interface Props {
 export default function Home({ posts }: Props) {
   return (
     <main>
-      <header className="max-w-screen-xl w-full mx-auto my-20 flex flex-col items-center">
+      <header className="max-w-screen-xl w-full mx-auto mt-20 flex flex-col items-center">
         <Title className="text-white">Tyrel Chambers</Title>
         <Text mt="lg" size="xl" color="dimmed">
           Indie developer creating things I&apos;m passionate about.
@@ -22,13 +23,24 @@ export default function Home({ posts }: Props) {
         <TechStackImgs />
       </header>
 
-      <section className=" max-w-screen-xl mx-auto">
-        <TextInput
+      <section className=" max-w-screen-xl mx-auto my-10">
+        {/* <TextInput
           type="search"
           className="mb-10"
           placeholder="Search for a post"
           icon={<FontAwesomeIcon icon={faSearch} />}
-        />
+        /> */}
+        <header className="flex items-baseline gap-5">
+          <Title order={2} className="text-2xl font-bold mb-10">
+            Recent posts
+          </Title>
+          <Link
+            href="/posts"
+            className="flex items-center text-indigo-400 gap-2 underline"
+          >
+            View more posts <FontAwesomeIcon icon={faArrowRight} />
+          </Link>
+        </header>
         <PostList posts={posts} />
       </section>
     </main>
@@ -43,7 +55,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     apiVersion: "2023-05-27",
     useCdn: false,
   });
-  const posts = await sanityClient.fetch(`*[_type == "posts"]`);
+  const posts = await sanityClient.fetch(
+    `*[_type == "posts"] | order(publishedAt desc)[0...6]`
+  );
 
   return {
     props: {

@@ -1,8 +1,8 @@
 import { POST_URL } from "@/constants";
 import { Post } from "@/types";
-import { faEye } from "@fortawesome/pro-light-svg-icons";
+import { faCalendar, faEye } from "@fortawesome/pro-light-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Image, Text, Title } from "@mantine/core";
+import { Image, Text, Title } from "@mantine/core";
 import Link from "next/link";
 import React from "react";
 
@@ -12,7 +12,7 @@ interface Props {
 
 const PostList = ({ posts }: Props) => {
   return (
-    <div>
+    <div className="my-8">
       <ul className="grid grid-cols-3 gap-10">
         {posts.map((post) => (
           <li
@@ -30,9 +30,16 @@ const PostList = ({ posts }: Props) => {
             </div>
 
             <footer className="flex justify-between items-end">
-              <div className="flex text-neutral-500 gap-2 items-center">
-                <FontAwesomeIcon icon={faEye} />
-                <p>{post.views}</p>
+              <div className="flex gap-6">
+                <div className="flex text-neutral-500 gap-2 items-center">
+                  <FontAwesomeIcon icon={faEye} />
+                  <Text>{post.views}</Text>
+                </div>
+
+                <div className="flex text-neutral-500 gap-2 items-center">
+                  <FontAwesomeIcon icon={faCalendar} />
+                  <Text>{post.publishedAt}</Text>
+                </div>
               </div>
               <Link
                 href={POST_URL(post.slug.current)}

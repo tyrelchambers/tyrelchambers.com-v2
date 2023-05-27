@@ -83,6 +83,10 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     },
   });
 
+  if (process.env.NODE_ENV === "production") {
+    sanityClient.patch(posts[0]._id).inc({ views: 1 }).commit();
+  }
+
   try {
     return {
       props: {

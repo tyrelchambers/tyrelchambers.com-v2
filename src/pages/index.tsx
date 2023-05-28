@@ -23,7 +23,8 @@ export default function Home({ posts }: Props) {
         .timeline()
         .from(".post-list-item", {
           duration: 1,
-          y: -100,
+          scale: 0.8,
+          filter: "blur(8px)",
           opacity: 0,
           ease: "power3.out",
           stagger: 0.2,

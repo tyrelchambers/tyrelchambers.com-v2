@@ -7,12 +7,8 @@ const routes = [
     path: "/",
   },
   {
-    name: "About",
-    path: "/about",
-  },
-  {
     name: "Blog",
-    path: "/blog",
+    path: "/posts",
   },
 ];
 

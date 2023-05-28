@@ -1,4 +1,3 @@
-import { POST_URL } from "@/constants";
 import { Post } from "@/types";
 import { faCalendar, faEye } from "@fortawesome/pro-light-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -42,7 +41,7 @@ const PostList = ({ posts }: Props) => {
                 </div>
               </div>
               <Link
-                href={POST_URL(post.slug.current)}
+                href={`/post/${post.slug.current}`}
                 className="rounded-xl px-6 py-2 border-2 border-indigo-500 text-white font-medium text-center shadow-xl mt-8 hover:bg-indigo-500 self-end w-full sm:w-fit"
               >
                 View

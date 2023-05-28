@@ -24,12 +24,6 @@ export default function Home({ posts }: Props) {
       </header>
 
       <section className=" max-w-screen-xl mx-auto my-10">
-        {/* <TextInput
-          type="search"
-          className="mb-10"
-          placeholder="Search for a post"
-          icon={<FontAwesomeIcon icon={faSearch} />}
-        /> */}
         <header className="flex items-baseline gap-5">
           <Title order={2} className="text-2xl font-bold mb-10">
             Recent posts

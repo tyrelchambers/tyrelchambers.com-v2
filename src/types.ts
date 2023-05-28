@@ -1,4 +1,11 @@
 import { TypedObject } from "@sanity/types";
+
+export interface Tag {
+  _type: string;
+  _key: string;
+  label: string;
+  value: string;
+}
 export interface Post {
   title: string;
   slug: {
@@ -8,7 +15,7 @@ export interface Post {
   coverImg: string;
   content: string;
   views: number;
-  tags: { value: string }[];
+  tags: Tag[];
   _id: string;
   summary: string;
 }

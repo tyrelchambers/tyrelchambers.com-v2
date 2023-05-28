@@ -1,7 +1,8 @@
 import Header from "@/layout/Header";
 import Navbar from "@/layout/Navbar";
 import PostList from "@/layout/PostList";
-import { Post } from "@/types";
+import Tags from "@/layout/Tags";
+import { Post, Tag } from "@/types";
 import { faSearch } from "@fortawesome/pro-light-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Text, TextInput, Title } from "@mantine/core";
@@ -13,9 +14,10 @@ import React from "react";
 
 interface Props {
   posts: Post[];
+  tags: Tag[];
 }
 
-const Posts = ({ posts }: Props) => {
+const Posts = ({ posts, tags }: Props) => {
   const router = useRouter();
 
   return (
@@ -39,9 +41,22 @@ const Posts = ({ posts }: Props) => {
           }}
           defaultValue={router.query.q as string}
           onChange={(event) => {
-            router.push(`/posts?q=${event.target.value}`);
+            const query = router.query;
+
+            if (query.q === event.currentTarget.value) {
+              delete router.query.tag;
+              router.push({
+                query: { ...router.query },
+              });
+            } else {
+              router.push({
+                query: { ...router.query, q: event.currentTarget.value },
+              });
+            }
           }}
         />
+
+        <Tags tags={tags} activeTags={router.query.tag as string} />
 
         <PostList posts={posts} />
       </section>
@@ -50,7 +65,7 @@ const Posts = ({ posts }: Props) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const query = ctx.query.q;
+  const { q, tag } = ctx.query;
 
   const sanityClient = createClient({
     token: process.env.SANITY_TOKEN,
@@ -59,13 +74,45 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     apiVersion: "2023-05-27",
     useCdn: false,
   });
-  const posts = await sanityClient.fetch(
-    `*[_type == "posts" && title match "${query}*"] | order(publishedAt desc)`
+
+  let posts: Post[] = await sanityClient.fetch(
+    `*[_type == "posts"] | order(publishedAt desc)`
   );
+
+  if (q) {
+    posts = posts.filter((post) => {
+      return post.title.toLowerCase().includes((q as string).toLowerCase());
+    });
+  }
+
+  if (tag) {
+    posts = posts.filter((post) => {
+      return post.tags && post.tags.some((t) => t.value === tag);
+    });
+  }
+
+  const postTags: Post[] = await sanityClient.fetch(
+    `*[_type == "posts" && defined(tags)]`
+  );
+
+  const filteredTags = postTags
+    .map((post) => post.tags)
+    .flat()
+    .filter((tag) => tag._type === "tag")
+    .reduce((acc: Tag[], tag: Tag) => {
+      const existingTag = acc.find((t) => t._key === tag._key);
+
+      if (!existingTag) {
+        acc.push({ ...tag });
+      }
+
+      return acc;
+    }, []);
 
   return {
     props: {
       posts,
+      tags: filteredTags,
     },
   };
 };

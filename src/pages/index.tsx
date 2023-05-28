@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { useIsomorphicLayoutEffect } from "@/utils";
+import Head from "next/head";
 interface Props {
   posts: Post[];
 }
@@ -47,6 +48,9 @@ export default function Home({ posts }: Props) {
 
   return (
     <main>
+      <Head>
+        <title>Tyrel Chambers</title>
+      </Head>
       <header className="max-w-screen-xl w-full mx-auto mt-20 flex flex-col items-center">
         <Title className="text-white" id="title">
           Tyrel Chambers

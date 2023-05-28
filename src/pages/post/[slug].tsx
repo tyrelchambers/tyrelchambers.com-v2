@@ -12,6 +12,7 @@ import hljs from "highlight.js";
 import Header from "@/layout/Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar, faEye } from "@fortawesome/pro-light-svg-icons";
+import Head from "next/head";
 
 interface Props {
   post: Post;
@@ -41,6 +42,9 @@ const Post = ({ post, source }: Props) => {
 
   return (
     <main className="max-w-screen-lg mx-auto">
+      <Head>
+        <title>{post.title} | Tyrel Chambers</title>
+      </Head>
       <Header />
       <section className="max-w-screen-md mx-auto my-10 p-4">
         <div className="max-h-[300px] h-fit w-full overflow-hidden rounded-2xl mb-10 flex items-center">

@@ -9,7 +9,13 @@ export default class _Document extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <script
+            defer
+            data-domain="tyrelchambers.com"
+            src="https://plausible.io/js/script.js"
+          ></script>
+        </Head>
         <body>
           <Main />
           <NextScript />

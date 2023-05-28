@@ -1,5 +1,5 @@
 import { Post } from "@/types";
-import { Image, Text, Title } from "@mantine/core";
+import { Divider, Image, Text, Title } from "@mantine/core";
 import { GetServerSideProps } from "next";
 import { createClient } from "next-sanity";
 import Link from "next/link";
@@ -9,6 +9,9 @@ import { MDXRemote, MDXRemoteProps } from "next-mdx-remote";
 import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
 import hljs from "highlight.js";
+import Header from "@/layout/Header";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendar, faEye } from "@fortawesome/pro-light-svg-icons";
 
 interface Props {
   post: Post;
@@ -28,11 +31,7 @@ const Post = ({ post, source }: Props) => {
           <code className="hljs">{children}</code>
         </pre>
       ),
-      p: ({ children }) => (
-        <Text color="dimmed" className="my-4">
-          {children}
-        </Text>
-      ),
+      p: ({ children }) => <p className="text-neutral-400 my-4">{children}</p>,
     } as MDXRemoteProps["components"];
   }, []);
 
@@ -42,6 +41,7 @@ const Post = ({ post, source }: Props) => {
 
   return (
     <main className="max-w-screen-lg mx-auto">
+      <Header />
       <section className="max-w-screen-md mx-auto my-10">
         <div className="h-[300px] w-full overflow-hidden rounded-2xl mb-10 flex items-center">
           <Image src={post.coverImg} alt="" fit="cover" />
@@ -49,6 +49,16 @@ const Post = ({ post, source }: Props) => {
 
         <Title>{post.title}</Title>
         <MDXRemote {...source} components={components} />
+        <Divider className="my-10" />
+        <div className="flex gap-6">
+          <div className="flex items-center gap-2 text-neutral-400">
+            <FontAwesomeIcon icon={faEye} /> <Text>{post.views}</Text>
+          </div>
+          <div className="flex items-center gap-2 text-neutral-400">
+            <FontAwesomeIcon icon={faCalendar} />{" "}
+            <p className="text-neutral-400">{post.publishedAt}</p>
+          </div>
+        </div>
       </section>
     </main>
   );

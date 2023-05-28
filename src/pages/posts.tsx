@@ -3,14 +3,16 @@ import Navbar from "@/layout/Navbar";
 import PostList from "@/layout/PostList";
 import Tags from "@/layout/Tags";
 import { Post, Tag } from "@/types";
+import { useIsomorphicLayoutEffect } from "@/utils";
 import { faSearch } from "@fortawesome/pro-light-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Text, TextInput, Title } from "@mantine/core";
+import { gsap } from "gsap";
 import { GetServerSideProps } from "next";
 import { createClient } from "next-sanity";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useRef } from "react";
 
 interface Props {
   posts: Post[];
@@ -19,6 +21,21 @@ interface Props {
 
 const Posts = ({ posts, tags }: Props) => {
   const router = useRouter();
+  const tl = useRef<GSAPTimeline>();
+
+  useIsomorphicLayoutEffect(() => {
+    const ctx = gsap.context((self) => {
+      tl.current = gsap.timeline().from(".post-list-item", {
+        duration: 1,
+        y: -100,
+        opacity: 0,
+        ease: "power3.out",
+        stagger: 0.2,
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <main>
@@ -28,9 +45,9 @@ const Posts = ({ posts, tags }: Props) => {
       <Header />
       <section className="max-w-screen-xl mx-auto my-10">
         <Title>Blog</Title>
-        <Text size="xl" color="dimmed">
+        <p className="text-neutral-400 text-xl">
           I write mainly for myself, but hopefully they help you too!
-        </Text>
+        </p>
 
         <TextInput
           icon={<FontAwesomeIcon icon={faSearch} />}

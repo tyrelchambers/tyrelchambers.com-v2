@@ -24,7 +24,7 @@ const Navbar = () => {
           <li key={r.name}>
             <Link
               href={r.path}
-              className="flex items-baseline gap-2 text-neutral-400 hover:text-indigo-500"
+              className="flex items-baseline gap-2 text-neutral-400 hover:text-indigo-300"
             >
               {r.name}
             </Link>

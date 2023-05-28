@@ -20,22 +20,27 @@ import Image from "next/image";
 const TechStackImgs = () => {
   return (
     <div className="flex flex-wrap mt-3">
-      <Image width={75} src={cssImg} alt="" />
-      <Image width={75} src={htmlImg} alt="" />
-      <Image width={75} src={jsImg} alt="" />
-      <Image width={75} src={nextImg} alt="" />
-      <Image width={75} src={reactImg} alt="" />
-      <Image width={75} src={tsImg} alt="" />
-      <Image width={75} src={digitalOceanImg} alt="" />
-      <Image width={75} src={gitImg} alt="" />
-      <Image width={75} src={dockerImg} alt="" />
-      <Image width={75} src={postgresImg} alt="" />
-      <Image width={75} src={tailwindImg} alt="" />
-      <Image width={75} src={zodImg} alt="" />
-      <Image width={75} src={trpcImg} alt="" />
-      <Image width={75} src={prismaImg} alt="" />
-      <Image width={75} src={reactQueryImg} alt="" />
-      <Image width={75} src={openAiImg} alt="" />
+      <Image className="tech-stack-img" width={75} src={cssImg} alt="" />
+      <Image className="tech-stack-img" width={75} src={htmlImg} alt="" />
+      <Image className="tech-stack-img" width={75} src={jsImg} alt="" />
+      <Image className="tech-stack-img" width={75} src={nextImg} alt="" />
+      <Image className="tech-stack-img" width={75} src={reactImg} alt="" />
+      <Image className="tech-stack-img" width={75} src={tsImg} alt="" />
+      <Image
+        className="tech-stack-img"
+        width={75}
+        src={digitalOceanImg}
+        alt=""
+      />
+      <Image className="tech-stack-img" width={75} src={gitImg} alt="" />
+      <Image className="tech-stack-img" width={75} src={dockerImg} alt="" />
+      <Image className="tech-stack-img" width={75} src={postgresImg} alt="" />
+      <Image className="tech-stack-img" width={75} src={tailwindImg} alt="" />
+      <Image className="tech-stack-img" width={75} src={zodImg} alt="" />
+      <Image className="tech-stack-img" width={75} src={trpcImg} alt="" />
+      <Image className="tech-stack-img" width={75} src={prismaImg} alt="" />
+      <Image className="tech-stack-img" width={75} src={reactQueryImg} alt="" />
+      <Image className="tech-stack-img" width={75} src={openAiImg} alt="" />
     </div>
   );
 };

@@ -1,30 +1,63 @@
 import PostList from "@/layout/PostList";
-import { Text, TextInput, Title } from "@mantine/core";
-import axios from "axios";
+import { Title } from "@mantine/core";
 import { GetServerSideProps } from "next";
 import { createClient } from "next-sanity";
 import { Post } from "@/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faSearch } from "@fortawesome/pro-light-svg-icons";
+import { faArrowRight } from "@fortawesome/pro-light-svg-icons";
 import TechStackImgs from "@/layout/TechStackImgs";
 import Link from "next/link";
+import { useRef } from "react";
+import { gsap } from "gsap";
+import { useIsomorphicLayoutEffect } from "@/utils";
 interface Props {
   posts: Post[];
 }
 
 export default function Home({ posts }: Props) {
+  const tl = useRef<GSAPTimeline>();
+
+  useIsomorphicLayoutEffect(() => {
+    const ctx = gsap.context((self) => {
+      tl.current = gsap
+        .timeline()
+        .from(".post-list-item", {
+          duration: 1,
+          y: -100,
+          opacity: 0,
+          ease: "power3.out",
+          stagger: 0.2,
+        })
+        .from(
+          ".tech-stack-img",
+          {
+            duration: 0.5,
+            y: -100,
+            opacity: 0,
+            ease: "power3.out",
+            stagger: 0.05,
+          },
+          "-=2"
+        );
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <main>
       <header className="max-w-screen-xl w-full mx-auto mt-20 flex flex-col items-center">
-        <Title className="text-white">Tyrel Chambers</Title>
-        <Text mt="lg" size="xl" color="dimmed">
+        <Title className="text-white" id="title">
+          Tyrel Chambers
+        </Title>
+        <p className="text-neutral-400 my-6" id="subtitle">
           Indie developer creating things I&apos;m passionate about.
-        </Text>
+        </p>
         <TechStackImgs />
       </header>
 
       <section className=" max-w-screen-xl mx-auto my-10">
-        <header className="flex items-baseline gap-5">
+        <header className="flex items-baseline gap-5" id="recent-posts-header">
           <Title order={2} className="text-2xl font-bold mb-10">
             Recent posts
           </Title>

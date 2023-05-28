@@ -41,7 +41,8 @@ export default function App({ Component, pageProps }: AppProps) {
           font-family: ${heading.style.fontFamily} !important;
         }
 
-        p {
+        p,
+        a {
           font-family: ${p.style.fontFamily} !important;
         }
       `}</style>

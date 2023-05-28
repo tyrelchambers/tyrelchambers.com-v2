@@ -12,12 +12,12 @@ interface Props {
 
 const PostList = ({ posts }: Props) => {
   return (
-    <div className="my-8">
+    <div>
       <ul className="grid grid-cols-3 gap-10">
         {posts.map((post) => (
           <li
             key={post._id}
-            className="bg-neutral-800 rounded-2xl p-8 flex flex-col gap-3"
+            className="bg-neutral-800 rounded-2xl p-8 flex flex-col gap-3 post-list-item"
           >
             <div className="flex flex-col flex-1 gap-3">
               <div className="w-full h-[150px] overflow-hidden rounded-xl mb-4 shadow-lg flex items-center">
@@ -26,19 +26,19 @@ const PostList = ({ posts }: Props) => {
               <Title order={3} className="text-white">
                 {post.title}
               </Title>
-              <Text color="dimmed">{post.summary}</Text>
+              <p className="text-neutral-400">{post.summary}</p>
             </div>
 
             <footer className="flex justify-between items-end">
               <div className="flex gap-6">
                 <div className="flex text-neutral-500 gap-2 items-center">
                   <FontAwesomeIcon icon={faEye} />
-                  <Text>{post.views}</Text>
+                  <p className="text-neutral-400">{post.views}</p>
                 </div>
 
                 <div className="flex text-neutral-500 gap-2 items-center">
                   <FontAwesomeIcon icon={faCalendar} />
-                  <Text>{post.publishedAt}</Text>
+                  <p className="text-neutral-400">{post.publishedAt}</p>
                 </div>
               </div>
               <Link

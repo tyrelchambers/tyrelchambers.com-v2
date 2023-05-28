@@ -29,7 +29,7 @@ const Tags = ({ tags, activeTags }: Props) => {
 
   return (
     <div className="my-4">
-      <ul className="flex gap-4">
+      <ul className="flex gap-4 flex-wrap">
         {tags.map((tag) => (
           <li
             key={tag._key}

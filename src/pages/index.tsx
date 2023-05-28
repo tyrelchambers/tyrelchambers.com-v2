@@ -51,15 +51,18 @@ export default function Home({ posts }: Props) {
         <Title className="text-white" id="title">
           Tyrel Chambers
         </Title>
-        <p className="text-neutral-400 my-6" id="subtitle">
+        <p className="text-neutral-400 mb-6 text-center" id="subtitle">
           Indie developer creating things I&apos;m passionate about.
         </p>
         <TechStackImgs />
       </header>
 
-      <section className=" max-w-screen-xl mx-auto my-10">
-        <header className="flex items-baseline gap-5" id="recent-posts-header">
-          <Title order={2} className="text-2xl font-bold mb-10">
+      <section className="max-w-screen-xl mx-auto my-10 p-4">
+        <header
+          className="flex items-baseline gap-5 flex-col md:flex-row  mb-10"
+          id="recent-posts-header"
+        >
+          <Title order={2} className="text-2xl font-bold">
             Recent posts
           </Title>
           <Link

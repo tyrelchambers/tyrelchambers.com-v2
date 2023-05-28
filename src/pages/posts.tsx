@@ -44,7 +44,7 @@ const Posts = ({ posts, tags }: Props) => {
         <title>Blog | Tyrel Chambers</title>
       </Head>
       <Header />
-      <section className="max-w-screen-xl mx-auto my-10">
+      <section className="max-w-screen-xl mx-auto my-10 p-4">
         <Title>Blog</Title>
         <p className="text-neutral-400 text-xl">
           I write mainly for myself, but hopefully they help you too!

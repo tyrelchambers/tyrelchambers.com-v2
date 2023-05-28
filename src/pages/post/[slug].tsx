@@ -42,8 +42,8 @@ const Post = ({ post, source }: Props) => {
   return (
     <main className="max-w-screen-lg mx-auto">
       <Header />
-      <section className="max-w-screen-md mx-auto my-10">
-        <div className="h-[300px] w-full overflow-hidden rounded-2xl mb-10 flex items-center">
+      <section className="max-w-screen-md mx-auto my-10 p-4">
+        <div className="max-h-[300px] h-fit w-full overflow-hidden rounded-2xl mb-10 flex items-center">
           <Image src={post.coverImg} alt="" fit="cover" />
         </div>
 

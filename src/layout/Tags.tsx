@@ -34,7 +34,7 @@ const Tags = ({ tags, activeTags }: Props) => {
           <li
             key={tag._key}
             className={clsx(
-              "border-[1px] border-gray-600 py-1 px-3 rounded-full",
+              "border-[1px] border-gray-600 py-1 px-3 rounded-full text-sm",
               activeTags?.includes(tag.value) && "bg-indigo-500 text-white"
             )}
           >

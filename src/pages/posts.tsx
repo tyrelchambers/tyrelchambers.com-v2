@@ -37,7 +37,7 @@ const Posts = ({ posts, tags }: Props) => {
           placeholder="Search for some articles"
           className="mt-6"
           classNames={{
-            input: "p-8 rounded-2xl",
+            input: "rounded-2xl",
           }}
           defaultValue={router.query.q as string}
           onChange={(event) => {

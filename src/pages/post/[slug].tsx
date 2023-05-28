@@ -33,6 +33,20 @@ const Post = ({ post, source }: Props) => {
         </pre>
       ),
       p: ({ children }) => <p className="text-neutral-400 my-4">{children}</p>,
+      ul: ({ children }) => <ul className="pl-10">{children}</ul>,
+      li: ({ children }) => (
+        <li className="text-neutral-400 my-4 list-disc">{children}</li>
+      ),
+      blockquote: ({ children }) => (
+        <blockquote className="border-l-4 border-indigo-500 pl-4 my-4 bg-indigo-500 bg-opacity-10 p-3 rounded-2xl text-white italic blockquote">
+          {children}
+        </blockquote>
+      ),
+      img: ({ src, alt }) => (
+        <div className="w-full overflow-hidden rounded-2xl mb-10 flex items-center">
+          <Image src={src} alt={alt} fit="contain" />
+        </div>
+      ),
     } as MDXRemoteProps["components"];
   }, []);
 

@@ -34,7 +34,7 @@ export default function Home({ posts }: Props) {
           ".tech-stack-img",
           {
             duration: 0.5,
-            y: -100,
+            y: -20,
             opacity: 0,
             ease: "power3.out",
             stagger: 0.05,
@@ -63,7 +63,7 @@ export default function Home({ posts }: Props) {
 
       <section className="max-w-screen-xl mx-auto my-10 p-4">
         <header
-          className="flex items-baseline gap-5 flex-col md:flex-row  mb-10"
+          className="flex items-baseline gap-5 flex-col md:flex-row  mb-10 justify-between"
           id="recent-posts-header"
         >
           <Title order={2} className="text-2xl font-bold">
@@ -77,6 +77,21 @@ export default function Home({ posts }: Props) {
           </Link>
         </header>
         <PostList posts={posts} />
+      </section>
+
+      <section className="max-w-screen-lg w-full mx-auto rounded-xl p-10 contact-block my-20 flex">
+        <div className="flex flex-col flex-1">
+          <h3 className="text-2xl">Want to get in touch?</h3>
+          <p className="text-gray-500 mt-1">
+            Send me an email and let&apos;s connect.
+          </p>
+        </div>
+        <a
+          href="mailto:tychambers3@gmail.com?subject=Hey there!"
+          className="px-10 rounded-xl bg-indigo-500 text-white font-medium shadow-xl hover:bg-indigo-600 flex items-center"
+        >
+          Say hello!
+        </a>
       </section>
     </main>
   );

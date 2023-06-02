@@ -6,4 +6,33 @@
   .blockquote p {
     @apply text-indigo-100;
   }
+
+  .contact-block {
+    @apply relative bg-neutral-900;
+  }
+  .contact-block::before {
+    content: "";
+    display: block;
+    transform: scaleY(1.03) scaleX(1.004);
+    filter: brightness(1.5) blur(10px);
+
+    animation: pulse 2s infinite;
+
+    @apply bg-gradient-to-br from-indigo-500 to-cyan-500 absolute inset-0 z-[-1] rounded-xl;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scaleY(1.03) scaleX(1.004);
+    filter: brightness(1.5) blur(10px);
+  }
+  50% {
+    transform: scaleY(1.01) scaleX(1.002);
+    filter: brightness(1.2) blur(5px);
+  }
+  100% {
+    transform: scaleY(1.03) scaleX(1.004);
+    filter: brightness(1.5) blur(10px);
+  }
 }

@@ -45,7 +45,7 @@ const Posts = ({ posts, tags }: Props) => {
       </Head>
       <Header />
       <section className="max-w-screen-xl mx-auto my-10 p-4">
-        <Title>Blog</Title>
+        <Title weight={500}>Blog</Title>
         <p className="text-neutral-400 text-xl">
           I write mainly for myself, but hopefully they help you too!
         </p>

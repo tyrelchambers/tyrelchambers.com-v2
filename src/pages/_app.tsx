@@ -13,11 +13,6 @@ const p = Poppins({
   weight: ["300", "400", "500", "600", "900"],
 });
 
-const heading = Merriweather({
-  subsets: ["latin"],
-  weight: ["300", "400", "700", "900"],
-});
-
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <MantineProvider
@@ -26,26 +21,12 @@ export default function App({ Component, pageProps }: AppProps) {
       theme={{
         /** Put your mantine theme override here */
         colorScheme: "dark",
+        fontFamily: p.style.fontFamily,
       }}
     >
       <section>
         <Component {...pageProps} />
       </section>
-      <style jsx global>{`
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-          font-family: ${heading.style.fontFamily} !important;
-        }
-
-        p,
-        a {
-          font-family: ${p.style.fontFamily} !important;
-        }
-      `}</style>
     </MantineProvider>
   );
 }

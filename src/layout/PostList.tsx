@@ -22,7 +22,7 @@ const PostList = ({ posts }: Props) => {
               <div className="w-full h-[150px] overflow-hidden rounded-xl mb-4 shadow-lg flex items-center">
                 <Image src={post.coverImg} alt="" />
               </div>
-              <Title order={3} className="text-white">
+              <Title order={3} className="text-white" weight={500}>
                 {post.title}
               </Title>
               <p className="text-neutral-400">{post.summary}</p>

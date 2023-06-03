@@ -19,7 +19,7 @@ import Image from "next/image";
 
 const TechStackImgs = () => {
   return (
-    <div className="flex flex-wrap mt-3 justify-center">
+    <div className="flex flex-wrap mt-3">
       <Image className="tech-stack-img" width={75} src={cssImg} alt="" />
       <Image className="tech-stack-img" width={75} src={htmlImg} alt="" />
       <Image className="tech-stack-img" width={75} src={jsImg} alt="" />

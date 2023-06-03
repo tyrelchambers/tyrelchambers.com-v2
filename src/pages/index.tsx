@@ -11,6 +11,7 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { useIsomorphicLayoutEffect } from "@/utils";
 import Head from "next/head";
+import Bio from "@/layout/Bio";
 interface Props {
   posts: Post[];
 }
@@ -52,21 +53,22 @@ export default function Home({ posts }: Props) {
         <title>Tyrel Chambers</title>
       </Head>
       <header className="max-w-screen-xl w-full mx-auto mt-20 flex flex-col items-center">
-        <Title className="text-white" id="title">
+        <Title className="text-white" id="title" weight={500}>
           Tyrel Chambers
         </Title>
         <p className="text-neutral-400 mb-6 text-center" id="subtitle">
           Indie developer creating things I&apos;m passionate about.
         </p>
-        <TechStackImgs />
       </header>
+
+      <Bio />
 
       <section className="max-w-screen-xl mx-auto my-10 p-4">
         <header
           className="flex items-baseline gap-5 flex-col md:flex-row  mb-10 justify-between"
-          id="recent-posts-header"
+          id="recent-posts-header items-center"
         >
-          <Title order={2} className="text-2xl font-bold">
+          <Title order={2} className="text-2xl" weight={500}>
             Recent posts
           </Title>
           <Link

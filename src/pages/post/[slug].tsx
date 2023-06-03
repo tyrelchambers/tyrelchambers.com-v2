@@ -23,7 +23,7 @@ const Post = ({ post, source }: Props) => {
   const components = useMemo(() => {
     return {
       h2: ({ children }) => (
-        <Title order={2} className="text-2xl font-bold mt-6 mb-2">
+        <Title order={2} className="text-2xl font-bold mt-6 mb-2" weight={500}>
           {children}
         </Title>
       ),
@@ -65,7 +65,7 @@ const Post = ({ post, source }: Props) => {
           <Image src={post.coverImg} alt="" fit="cover" />
         </div>
 
-        <Title>{post.title}</Title>
+        <Title weight={500}>{post.title}</Title>
         <MDXRemote {...source} components={components} />
         <Divider className="my-10" />
         <div className="flex gap-6">

@@ -12,7 +12,7 @@ interface Props {
 const PostList = ({ posts }: Props) => {
   return (
     <div>
-      <ul className="grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-10">
+      <ul className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
         {posts.map((post) => (
           <li
             key={post._id}
@@ -28,8 +28,8 @@ const PostList = ({ posts }: Props) => {
               <p className="text-neutral-400">{post.summary}</p>
             </div>
 
-            <footer className="flex justify-between md:items-end flex-col-reverse lg:flex-row md:mt-4">
-              <div className="flex gap-6 mt-4 sm:mt-0">
+            <footer className="flex justify-between md:items-end flex-col lg:flex-row md:mt-4">
+              <div className="flex gap-6">
                 <div className="flex text-neutral-500 gap-2 items-center">
                   <FontAwesomeIcon icon={faEye} />
                   <p className="text-neutral-400">{post.views}</p>

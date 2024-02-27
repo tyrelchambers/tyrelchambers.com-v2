@@ -1,0 +1,23 @@
+<svg width="261" height="260" viewBox="0 0 261 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_303_17203)">
+</g>
+<g clip-path="url(#clip0_303_17203)">
+<path d="M180.552 75.5942H80.5522V175.594H180.552V75.5942Z" fill="#666"/>
+<path d="M147.722 153.724C149.722 157.004 152.362 159.424 156.992 159.424C160.892 159.424 163.382 157.484 163.382 154.794C163.382 151.594 160.822 150.424 156.552 148.594L154.202 147.594C147.422 144.704 142.922 141.084 142.922 133.434C142.922 126.434 148.292 121.024 156.682 121.024C162.682 121.024 166.952 123.104 170.052 128.544L162.732 133.244C161.122 130.354 159.382 129.244 156.732 129.244C154.082 129.244 152.232 130.994 152.232 133.244C152.232 136.064 153.982 137.244 158.012 138.954L160.362 139.954C168.362 143.384 172.852 146.874 172.852 154.724C172.852 163.184 166.212 167.814 157.282 167.814C148.552 167.814 142.922 163.654 140.162 158.204L147.722 153.724ZM114.552 154.534C116.032 157.154 117.372 159.364 120.602 159.364C123.682 159.364 125.602 158.164 125.602 153.464V121.514H135.002V153.594C135.002 163.324 129.292 167.744 121.002 167.744C113.472 167.744 109.122 163.854 106.902 159.164L114.552 154.534Z" fill="black"/>
+</g>
+<defs>
+<filter id="filter0_d_303_17203" x="0.723999" y="0" width="260" height="260" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="20"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.0367917 0 0 0 0 0.0348958 0 0 0 0 0.0484375 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_303_17203"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_303_17203" result="shape"/>
+</filter>
+<clipPath id="clip0_303_17203">
+<rect width="100" height="100" fill="white" transform="translate(80.5522 75.5942)"/>
+</clipPath>
+</defs>
+</svg>

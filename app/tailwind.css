@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.inter-700 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+}
+
+.inter-300 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+}
+
+.highlight {
+  font-weight: 700;
+  @apply text-zinc-800;
+}
+
+.h1 {
+  @apply text-7xl inter-700 text-zinc-800 mb-10;
+}
+
+.h2 {
+  @apply text-5xl inter-700 text-zinc-800 mb-10;
+}
+
+.p {
+  @apply text-3xl text-zinc-500 my-4 leading-normal;
+}
+
+.project-item:hover .name {
+  @apply text-orange-500;
+}

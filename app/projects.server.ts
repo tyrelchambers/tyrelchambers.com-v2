@@ -1,8 +1,16 @@
 import fs from "fs/promises";
-import fm from "front-matter";
-export async function readProject(fileName: string) {
-  const file = await fs.readFile(`./projects/${fileName}`);
-  return file.toString();
+import fm, { FrontMatterResult } from "front-matter";
+
+interface Project {
+  title: string;
+  link: string;
+}
+
+export async function readProject(
+  fileName: string
+): Promise<FrontMatterResult<Project>> {
+  const file = await fs.readFile(`./projects/${fileName}.md`);
+  return fm(file.toString());
 }
 
 export const getAllProjects = async () => {
@@ -11,7 +19,7 @@ export const getAllProjects = async () => {
 
   for (const file of files) {
     const project = await readProject(file);
-    projects.push(fm(project));
+    projects.push(project);
   }
 
   return projects;

@@ -2,12 +2,12 @@ const projects = [
   {
     name: "Reddex",
     description: "An app tailored to Youtube Narrators.",
-    slug: "/projects/reddex",
+    slug: "https://reddex.app",
   },
   {
     name: "WildBarrens",
     description: "An Overlanding social site.",
-    slug: "/projects/wildbarrens",
+    slug: "https://wildbarrens.com",
   },
   {
     name: "WildBarrens Blog",

@@ -1,4 +1,4 @@
-import { LoaderFunction, json } from "@remix-run/node";
+import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import BackButton from "~/components/BackButton";
 import { Post } from "~/types";
@@ -33,10 +33,10 @@ const Articles = () => {
   const data = useLoaderData<Post>();
 
   return (
-    <main className="max-w-screen-lg mx-auto my-20">
+    <main className="max-w-screen-sm mx-auto my-20">
       <BackButton />
 
-      <h1 className="h1">{data.title}</h1>
+      <h1 className="mb-10 font-bold text-4xl">{data.title}</h1>
       <ReactMarkdown
         remarkPlugins={[
           remarkGfm,
@@ -48,7 +48,7 @@ const Articles = () => {
             }),
         ]}
         rehypePlugins={[rehypeHighlight]}
-        className="prose lg:prose-xl"
+        className="prose"
       >
         {data.content}
       </ReactMarkdown>

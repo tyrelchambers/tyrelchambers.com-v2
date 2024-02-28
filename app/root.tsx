@@ -34,7 +34,7 @@ export default function App() {
           rel="stylesheet"
         ></link>
       </head>
-      <body>
+      <body className="p-4">
         <Outlet />
         <ScrollRestoration />
         <Scripts />

@@ -29,6 +29,7 @@ export default function App() {
           href="https://fonts.gstatic.com"
           crossOrigin="true"
         />
+        <script defer data-domain="tyrelchambers.com" src="https://plausible.io/js/script.js"></script>
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
           rel="stylesheet"

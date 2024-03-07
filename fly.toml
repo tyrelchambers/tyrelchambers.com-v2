@@ -1,0 +1,23 @@
+# fly.toml file generated for tyrelchambers on 2023-05-28T16:05:16-04:00
+
+app = "tyrelchambers"
+primary_region = "yyz"
+
+[build]
+  [build.args]
+    NEXT_PUBLIC_EXAMPLE = "Value goes here"
+
+[env]
+  PORT = "3000"
+
+[[services]]
+  internal_port = 3000
+  protocol = "tcp"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = "80"
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = "443"

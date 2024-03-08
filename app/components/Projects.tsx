@@ -35,9 +35,7 @@ const Projects = () => {
     <ul className="flex flex-col gap-4">
       {projects.map(({ name, description, slug }) => (
         <a href={slug} key={name} className="flex flex-col project-item">
-          <p className="text-zinc-800  inter-700 underline decoration-dashed name">
-            {name}
-          </p>
+          <p className="text-zinc-800  inter-700  name">{name}</p>
           <p className="text-zinc-500 text-sm inter-300">{description}</p>
         </a>
       ))}

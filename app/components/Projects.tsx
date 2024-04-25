@@ -10,9 +10,9 @@ const projects = [
     slug: "https://wildbarrens.com",
   },
   {
-    name: "WildBarrens Blog",
-    description: "The blog for WildBarrens.",
-    slug: "https://blog.wildbarrens.com",
+    name: "11Knots",
+    description: "A yachting social site.",
+    slug: "https://11knots.com",
   },
   {
     name: "Stories After Midnight",
@@ -23,11 +23,6 @@ const projects = [
     name: "tyrelchambers.co",
     description: "My personal freelancing site.",
     slug: "https://tyrelchambers.co",
-  },
-  {
-    name: "JSOperators",
-    description: "An open source javascript operator lookup app.",
-    slug: "https://jsoperators.com",
   },
 ];
 const Projects = () => {
